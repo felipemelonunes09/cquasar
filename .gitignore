@@ -1,0 +1,91 @@
+# Visual Studio specific files
+.vscode/
+.vs/
+*.code-workspace
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.unsuccessfulbuild
+
+# Build artifacts
+[Bb]uild/
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
+*.pch
+*.tmp
+*.o
+*.a
+*.lib
+*.dll
+*.tlb
+*.tlh
+*.cache
+
+# Visual Studio Code workspace and project files
+.vscode/
+
+# CMake build artifacts
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+
+# Output directories
+out/
+bin/
+obj/
+lib/
+
+# Temporary files
+*.tmp
+*.log
+*.ncb
+*.sdf
+*.opendb
+*.tlog
+*.lastbuildstate
+
+# Project files that can be regenerated
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+
+# IntelliSense database
+ipch/
+*.ipch
+*.iobj
+*.ipdb
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Windows specific files
+Thumbs.db
+*.DS_Store
+desktop.ini
+
+# Backup files
+*.bak
+*.old
+*.orig
+*.prev
+
+# Linux/Mac specific files
+*.swp
+*.swo
+
+main
