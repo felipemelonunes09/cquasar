@@ -2,7 +2,7 @@
 #include "globals.h"
 
 /* if true the compiler will only make the scan */
-#define NO_PARSE false
+#define NO_PARSE true
 
 /* if true compiler will only make the syntax analysis */
 #define NO_ANALYZE false
@@ -43,8 +43,22 @@ int main(int argc, char* argv[]) {
         fprintf(stderr, "usage: %s <filename>\n", argv[0]);
         exit(1);
     }
-
     char* filename = (char*) malloc((strlen(argv[1]) + 1) * sizeof(char));
     strcpy(filename, argv[1]);
-    
+
+    if (strchr(filename, '.') == NULL) {
+        strcat(filename, ".qs");
+    }
+    source = fopen(filename, "r");
+    if (source == NULL) {
+        fprintf(stderr, "Error: unable to open file %s\n", filename);
+        exit(1);
+    }
+    listing = stdout;
+    fprintf(listing, "\nQUASAR COMPILATION: %s\n", filename);
+
+    #if NO_PARSE
+    // TODO: implement a simple parser
+    while (getToken() != ENDFILE);
+    #endif
 }
