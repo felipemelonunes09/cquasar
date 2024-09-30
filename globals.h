@@ -13,7 +13,11 @@ extern FILE* source;
 extern FILE* listing;
 extern FILE* code;
 
-extern int lineno; /* enumeration of the lines  of the file source listing */
+extern int linemo; /* enumeration of the lines  of the file source listing */
+
+typedef enum {
+    ENDFILE, ERROR
+} TokenType;
 
 /**************************************************/
 /****** Tracemarks to follow the execution ****** */
@@ -24,6 +28,6 @@ extern bool TraceScan;
 extern bool TraceParse;
 extern bool TraceAnalyze;
 extern bool TraceCode;
-extern int Error;
+extern bool Error;
 
 #endif

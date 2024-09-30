@@ -11,7 +11,7 @@
 #define NO_CODE false
 
 #if NO_PARSE
-#include "core/scan/scan.h"
+#include "./core/scan/scan.h"
 #else
 #include "./core/scan/scan.h"
 #if !NO_ANALYZE
@@ -35,7 +35,7 @@ bool TraceScan       = true;
 bool TraceParser     = true;
 bool TraceAnalyzer   = true;
 bool TraceCode       = true;
-bool error           = false;
+bool Error           = false;
 
 int main(int argc, char* argv[]) {
     std::cout << "Quasar Compiler v0.1" << std::endl; // TODO: version number
@@ -61,4 +61,6 @@ int main(int argc, char* argv[]) {
     // TODO: implement a simple parser
     while (getToken() != ENDFILE);
     #endif
+
+    free(filename);
 }
