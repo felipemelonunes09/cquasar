@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
 
     #if NO_PARSE
     // TODO: implement a simple parser
-    while (getToken() != ENDFILE);
+    getToken();
     #endif
 
     free(filename);

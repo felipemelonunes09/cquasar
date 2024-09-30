@@ -1,10 +1,11 @@
 #include "../../globals.h"
+#include "../../utils.h"
 
 #define MAXTOKENLEN 40
 #define BUFFER_LENGHT 256
 
 typedef enum {
-    START, IN_ASSIGN, IN_COMMENT, IN_NUM, IN_ID, DONE
+    _START, _NUMBER, _DONE
 } ScanState;
 
 char tokenString[MAXTOKENLEN + 1];
@@ -12,7 +13,6 @@ char tokenString[MAXTOKENLEN + 1];
 static char lineBuffer[BUFFER_LENGHT];
 static int linePosition = 0;
 static int bufferSize = 0;
-
 
 static char getNextChar(void) {
     if (!(linePosition < bufferSize)) {
@@ -28,10 +28,54 @@ static char getNextChar(void) {
     return lineBuffer[linePosition++];
 }
 
+static void ungetNextChat(void) {
+    linePosition--;
+}
+
 TokenType getToken(void) {
-    char c = getNextChar();
-    
-    fprintf(stdout, "%c", c);
-    return ENDFILE;
+    int tokenStringIndex = 0;
+    bool save;
+    TokenType currentToken;
+    ScanState state = _START;
+    while (state != _DONE) {
+        char c = getNextChar();
+        save = true;
+        switch (state) { 
+            case _START: 
+                if (isDigit(c))
+                    state = _NUMBER;
+                else if (c == EOF) 
+                    state = _DONE;
+                else
+                    state = _DONE;
+            break;
+            case _NUMBER:
+                if (!isDigit(c)) {
+                    ungetNextChat();
+                    save = false;
+                    state = _DONE;
+                    currentToken = NUMBER;
+                }
+            break;
+            case _DONE: break;
+        }
+
+        if ((save) && tokenStringIndex <= MAXTOKENLEN) {
+            tokenString[tokenStringIndex++] = c;
+            if (state == _DONE) {
+                tokenString[tokenStringIndex] = '\0';
+                //if (currentToken == ID)
+                    //currentToken = reservedLookup(tokenString);
+            }
+        }
+
+        if (TraceScan) {
+            fprintf(listing, "\t%d: ", linemo);
+            printf("\ntoken: %s", tokenString);
+            //printToken(currentToken, tokenString);
+        }
+    }
+
+    return currentToken;
 }
 
