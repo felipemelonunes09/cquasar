@@ -11,6 +11,7 @@ void Token::setTokenString(const std::string& id) {
     tokenString = id;
 }
 
+
 void Token::setType(const TokenType tokenType) {
     type = tokenType;
 }

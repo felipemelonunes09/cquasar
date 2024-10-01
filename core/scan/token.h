@@ -13,9 +13,8 @@ class Token {
 
         std::string getTokenString() const;
         TokenType getType() const; 
-
+        
         std::string toString();
-
     private:
         std::string tokenString;
         TokenType type;
