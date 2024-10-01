@@ -1,6 +1,7 @@
 #ifndef _GLOBALS_H_
 #define _GLOBALS_H_
 
+#include <string>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,7 +17,7 @@ extern FILE* code;
 extern int linemo; /* enumeration of the lines  of the file source listing */
 
 typedef enum {
-    ENDFILE, ERROR,
+    ENDFILE, ERROR, UNDEFINED,
     NUMBER, ID
 } TokenType;
 
