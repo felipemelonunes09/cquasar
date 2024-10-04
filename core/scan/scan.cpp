@@ -1,14 +1,10 @@
 #include "../../globals.h"
 #include "../../utils.h"
+#include "token.h"
 
-#define MAXTOKENLEN 40
 #define BUFFER_LENGHT 256
 
-typedef enum {
-    _START, _NUMBER, _DONE
-} ScanState;
-
-char tokenString[MAXTOKENLEN + 1];
+typedef enum { _START, _NUMBER, _DONE } ScanState;
 
 static char lineBuffer[BUFFER_LENGHT];
 static int linePosition = 0;
@@ -32,11 +28,12 @@ static void ungetNextChat(void) {
     linePosition--;
 }
 
-TokenType getToken(void) {
-    int tokenStringIndex = 0;
+Token getToken(void) {
     bool save;
-    TokenType currentToken;
+    Token token;
     ScanState state = _START;
+    std::string tokenString = "";
+
     while (state != _DONE) {
         char c = getNextChar();
         save = true;
@@ -44,26 +41,31 @@ TokenType getToken(void) {
             case _START: 
                 if (isDigit(c))
                     state = _NUMBER;
-                else if (c == EOF) 
+                else if (isWhiteSpace(c))
+                    save = false;
+                else {
                     state = _DONE;
-                else
-                    state = _DONE;
+                    switch (c)
+                    {
+                        case EOF:
+                        break;
+                    }
+                }
             break;
             case _NUMBER:
                 if (!isDigit(c)) {
                     ungetNextChat();
                     save = false;
                     state = _DONE;
-                    currentToken = NUMBER;
+                    token.setType(NUMBER);
                 }
             break;
             case _DONE: break;
         }
 
-        if ((save) && tokenStringIndex <= MAXTOKENLEN) {
-            tokenString[tokenStringIndex++] = c;
+        if (save) {
+            tokenString += c;
             if (state == _DONE) {
-                tokenString[tokenStringIndex] = '\0';
                 //if (currentToken == ID)
                     //currentToken = reservedLookup(tokenString);
             }
@@ -71,11 +73,10 @@ TokenType getToken(void) {
 
         if (TraceScan) {
             fprintf(listing, "\t%d: ", linemo);
-            printf("\ntoken: %s", tokenString);
-            //printToken(currentToken, tokenString);
         }
     }
 
-    return currentToken;
+    token.setTokenString(tokenString);
+    return token;
 }
 

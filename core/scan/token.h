@@ -2,6 +2,7 @@
 #define TOKEN_H
 #include "../../globals.h"
 
+
 class Token {
     public:
         ~Token();

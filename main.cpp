@@ -60,6 +60,7 @@ int main(int argc, char* argv[]) {
     #if NO_PARSE
     // TODO: implement a simple parser
     getToken();
+    getToken();
     #endif
 
     free(filename);
