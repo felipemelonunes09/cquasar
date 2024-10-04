@@ -64,4 +64,5 @@ int main(int argc, char* argv[]) {
     #endif
 
     free(filename);
+    return 0;
 }

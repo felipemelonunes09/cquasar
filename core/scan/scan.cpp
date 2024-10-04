@@ -14,7 +14,7 @@ static char getNextChar(void) {
     if (!(linePosition < bufferSize)) {
         linePosition++;
         if (fgets(lineBuffer, BUFFER_LENGHT-1, source)) {
-            if (EchoSource) fprintf(listing, "%4d: %s", linemo, lineBuffer);
+            if (EchoSource) fprintf(listing, "\n%4d: %s", linemo, lineBuffer);
             bufferSize = strlen(lineBuffer);
             linePosition = 0;
             return lineBuffer[linePosition++];
@@ -28,13 +28,13 @@ static void ungetNextChat(void) {
     linePosition--;
 }
 
-Token getToken(void) {
+Token* getToken(void) {
     bool save;
-    Token token;
+    Token* token = new Token(); 
     ScanState state = _START;
-    std::string tokenString = "";
-
+    std::string tokenString = "";   
     while (state != _DONE) {
+    
         char c = getNextChar();
         save = true;
         switch (state) { 
@@ -57,12 +57,14 @@ Token getToken(void) {
                     ungetNextChat();
                     save = false;
                     state = _DONE;
-                    token.setType(NUMBER);
+                    token->setType(NUMBER);
                 }
             break;
             case _DONE: break;
         }
 
+        if (TraceScan) 
+            fprintf(listing, "\t%d: %s", linemo,  tokenString.c_str());
         if (save) {
             tokenString += c;
             if (state == _DONE) {
@@ -70,13 +72,11 @@ Token getToken(void) {
                     //currentToken = reservedLookup(tokenString);
             }
         }
-
-        if (TraceScan) {
-            fprintf(listing, "\t%d: ", linemo);
-        }
     }
 
-    token.setTokenString(tokenString);
+    token->setTokenString(tokenString);
+    if (TraceScan) 
+        fprintf(listing, "%d: %s", linemo,  token->toString().c_str());
     return token;
 }
 
