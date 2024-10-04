@@ -4,7 +4,7 @@
 
 #define BUFFER_LENGHT 256
 
-typedef enum { _START, _NUMBER, _DONE } ScanState;
+typedef enum { _START, _NUMBER, _DONE, _ID } ScanState;
 
 static char lineBuffer[BUFFER_LENGHT];
 static int linePosition = 0;
@@ -41,6 +41,8 @@ Token* getToken(void) {
             case _START: 
                 if (isDigit(c))
                     state = _NUMBER;
+                else if (isAlpha(c))
+                    state = _ID;
                 else if (isWhiteSpace(c))
                     save = false;
                 else {
@@ -60,6 +62,13 @@ Token* getToken(void) {
                     token->setType(NUMBER);
                 }
             break;
+            case _ID:
+                if (!(isAlpha(c) || isDigit(c))) {
+                    ungetNextChat();
+                    save = false;
+                    state = _DONE;
+                    token->setType(ID);
+                }
             case _DONE: break;
         }
 
