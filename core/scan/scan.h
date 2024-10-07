@@ -1,6 +1,5 @@
 #ifndef SCAN_H
 #define SCAN_H
-
-TokenType getToken(void);
-
+#include <unordered_map>
+Token* getToken(void);
 #endif
