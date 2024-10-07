@@ -16,8 +16,9 @@ extern FILE* code;
 extern int linemo; /* enumeration of the lines  of the file source listing */
 
 typedef enum {
-    ENDFILE, ERROR, UNDEFINED,
-    NUMBER, ID
+    ENDFILE=0, ERROR=-1, UNDEFINED=-2,
+    NUMBER=1, ID=2,
+    IF=3, FOR=4, WHILE=5, PRINT=6
 } TokenType;
 
 /**************************************************/
