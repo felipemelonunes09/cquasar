@@ -3,4 +3,7 @@
 
 bool isDigit(char c);
 bool isWhiteSpace(char c);
+bool isStartIdentifier(char c);
+bool isIdentifier(char c);
+
 #endif
