@@ -1,5 +1,6 @@
 #include <iostream>
 #include "globals.h"
+#include "core/scan/token.h"
 
 /* if true the compiler will only make the scan */
 #define NO_PARSE true
@@ -58,9 +59,13 @@ int main(int argc, char* argv[]) {
     fprintf(listing, "\nQUASAR COMPILATION: %s\n", filename);
 
     #if NO_PARSE
-    // TODO: implement a simple parser
-    getToken();
-    getToken();
+    // TODO: implement a simple scan
+    fprintf(listing, "(+) Scanning tokens...");
+    Token* token = NULL;
+    do {
+        token = getToken();
+    } while(token->getType() != ENDFILE);
+
     #endif
 
     free(filename);
