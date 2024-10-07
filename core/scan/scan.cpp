@@ -10,11 +10,18 @@ static char lineBuffer[BUFFER_LENGHT];
 static int linePosition = 0;
 static int bufferSize = 0;
 
+std::unordered_map<std::string, TokenType> reserverdWords = {
+    {"if",    IF },
+    {"for",   FOR },
+    {"while", WHILE },
+    {"print", PRINT }
+};
+
 static char getNextChar(void) {
     if (!(linePosition < bufferSize)) {
         linePosition++;
         if (fgets(lineBuffer, BUFFER_LENGHT-1, source)) {
-            if (EchoSource) fprintf(listing, "\n%4d: %s", linemo, lineBuffer);
+            if (EchoSource) fprintf(listing, "\n(*)%4d: %s", linemo, lineBuffer);
             bufferSize = strlen(lineBuffer);
             linePosition = 0;
             return lineBuffer[linePosition++];
@@ -41,7 +48,7 @@ Token* getToken(void) {
             case _START: 
                 if (isDigit(c))
                     state = _NUMBER;
-                else if (isAlpha(c))
+                else if (isStartIdentifier(c))
                     state = _ID;
                 else if (isWhiteSpace(c))
                     save = false;
@@ -49,8 +56,7 @@ Token* getToken(void) {
                     state = _DONE;
                     switch (c)
                     {
-                        case EOF:
-                        break;
+                        case EOF: token->setType(ENDFILE); break;
                     }
                 }
             break;
@@ -63,7 +69,7 @@ Token* getToken(void) {
                 }
             break;
             case _ID:
-                if (!(isAlpha(c) || isDigit(c))) {
+                if (!isIdentifier(c)) {
                     ungetNextChat();
                     save = false;
                     state = _DONE;
@@ -72,20 +78,19 @@ Token* getToken(void) {
             case _DONE: break;
         }
 
-        if (TraceScan) 
-            fprintf(listing, "\t%d: %s", linemo,  tokenString.c_str());
         if (save) {
             tokenString += c;
-            if (state == _DONE) {
-                //if (currentToken == ID)
-                    //currentToken = reservedLookup(tokenString);
-            }
+            if (state == _DONE) 
+                if (reserverdWords.count(tokenString)) {
+                    if (TraceScan) { fprintf(listing, " -> reserved word assign"); }
+                    token->setType(reserverdWords[tokenString]); 
+                }
         }
     }
 
     token->setTokenString(tokenString);
     if (TraceScan) 
-        fprintf(listing, "%d: %s", linemo,  token->toString().c_str());
+        fprintf(listing, "\t%d: %s\n", linemo,  token->toString().c_str());
     return token;
 }
 
