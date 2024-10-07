@@ -8,14 +8,11 @@ class Token {
         ~Token();
         Token();
         Token(const std::string& tokenString, TokenType type);
-
         void setTokenString(const std::string& id);
         void setType(TokenType type);
-
         std::string getTokenString() const;
-        TokenType getType() const; 
-        
         std::string toString();
+        TokenType getType() const; 
     private:
         std::string tokenString;
         TokenType type;
