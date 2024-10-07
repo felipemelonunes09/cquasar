@@ -78,13 +78,12 @@ Token* getToken(void) {
             case _DONE: break;
         }
 
-        if (save) {
+        if (save) 
             tokenString += c;
-            if (state == _DONE) 
-                if (reserverdWords.count(tokenString)) {
-                    if (TraceScan) { fprintf(listing, " -> reserved word assign"); }
-                    token->setType(reserverdWords[tokenString]); 
-                }
+        if (state == _DONE) 
+            if (reserverdWords.count(tokenString)) {
+                if (TraceScan) { fprintf(listing, " (RW) "); }
+                token->setType(reserverdWords[tokenString]); 
         }
     }
 
