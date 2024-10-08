@@ -16,3 +16,7 @@ bool isStartIdentifier(char c) {
 bool isIdentifier(char c) {
     return isStartIdentifier(c) || isDigit(c);
 }
+
+bool isEqual(char c) {
+    return c == '=';
+}

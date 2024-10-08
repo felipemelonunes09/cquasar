@@ -5,5 +5,6 @@ bool isDigit(char c);
 bool isWhiteSpace(char c);
 bool isStartIdentifier(char c);
 bool isIdentifier(char c);
+bool isEqual(char c);
 
 #endif
