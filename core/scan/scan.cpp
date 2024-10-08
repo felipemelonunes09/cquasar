@@ -4,17 +4,17 @@
 
 #define BUFFER_LENGHT 256
 
-typedef enum { _START, _NUMBER, _DONE, _ID } ScanState;
+typedef enum { _START, _NUMBER, _DONE, _ID, _EQUAL } ScanState;
 
 static char lineBuffer[BUFFER_LENGHT];
 static int linePosition = 0;
 static int bufferSize = 0;
 
 std::unordered_map<std::string, TokenType> reserverdWords = {
-    {"if",    IF },
-    {"for",   FOR },
-    {"while", WHILE },
-    {"print", PRINT }
+    {"if",    Tt_Rw_IF },
+    {"for",   Tt_Rw_FOR },
+    {"while", Tt_Rw_WHILE },
+    {"print", Tt_Rw_PRINT }
 };
 
 static char getNextChar(void) {
@@ -52,11 +52,13 @@ Token* getToken(void) {
                     state = _ID;
                 else if (isWhiteSpace(c))
                     save = false;
+                else if (isEqual(c)) 
+                    state = _EQUAL;
                 else {
                     state = _DONE;
                     switch (c)
                     {
-                        case EOF: token->setType(ENDFILE); break;
+                        case EOF: token->setType(Tt_Ctl_ENDFILE); break;
                     }
                 }
             break;
@@ -65,7 +67,7 @@ Token* getToken(void) {
                     ungetNextChat();
                     save = false;
                     state = _DONE;
-                    token->setType(NUMBER);
+                    token->setType(Tt_Id_NUMBER);
                 }
             break;
             case _ID:
@@ -73,8 +75,11 @@ Token* getToken(void) {
                     ungetNextChat();
                     save = false;
                     state = _DONE;
-                    token->setType(ID);
+                    token->setType(Tt_Id_IDENTIFIER);
                 }
+            case _EQUAL: 
+                
+            break;
             case _DONE: break;
         }
 
