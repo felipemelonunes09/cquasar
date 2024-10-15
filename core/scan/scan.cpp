@@ -4,7 +4,7 @@
 
 #define BUFFER_LENGHT 256
 
-typedef enum { _START, _NUMBER, _DONE, _ID, _EQUAL } ScanState;
+typedef enum { _START=1, _NUMBER=2, _DONE=3, _ID=4, _EQUAL=5 } ScanState;
 
 static char lineBuffer[BUFFER_LENGHT];
 static int linePosition = 0;
@@ -44,16 +44,17 @@ Token* getToken(void) {
     
         char c = getNextChar();
         save = true;
+
         switch (state) { 
             case _START: 
                 if (isDigit(c))
                     state = _NUMBER;
                 else if (isStartIdentifier(c))
                     state = _ID;
-                else if (isWhiteSpace(c))
-                    save = false;
                 else if (isEqual(c)) 
                     state = _EQUAL;
+                else if (isWhiteSpace(c))
+                    save = false;
                 else {
                     state = _DONE;
                     switch (c)
@@ -77,18 +78,28 @@ Token* getToken(void) {
                     state = _DONE;
                     token->setType(Tt_Id_IDENTIFIER);
                 }
+            break;
             case _EQUAL: 
-                
+                if (isEqual(c)) {
+                    token->setType(Tt_Op_Comparation);
+                }
+                else {
+                    token->setType(Tt_Op_Attribuition);
+                    ungetNextChat();
+                    save = false;
+                }
+                state = _DONE;
             break;
             case _DONE: break;
         }
 
         if (save) 
             tokenString += c;
-        if (state == _DONE) 
+        if (state == _DONE) {
             if (reserverdWords.count(tokenString)) {
                 if (TraceScan) { fprintf(listing, " (RW) "); }
                 token->setType(reserverdWords[tokenString]); 
+        }
         }
     }
 

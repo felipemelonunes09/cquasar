@@ -4,10 +4,17 @@
 
 Tokens:
     NUMBER: starts with a digit and only have digits.
-    ID: start with a letter and can have digits and characters 
+    ID: start with a letter and can have digits and characters
+
+
 
 Commands:
-    if
-    while
-    for
-    print
+    Reserved Words:
+        if
+        while
+        for
+        print
+    Attribuition:
+        =
+    Comparation: 
+        ==

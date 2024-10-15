@@ -64,7 +64,8 @@ int main(int argc, char* argv[]) {
     Token* token = NULL;
     do {
         token = getToken();
-    } while(token->getType() != ENDFILE);
+    } while(token->getType() != Tt_Ctl_ENDFILE);
+
 
     #endif
 
