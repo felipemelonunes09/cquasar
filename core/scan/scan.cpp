@@ -70,6 +70,9 @@ Token* getToken(void) {
                         case '-': token->setType(Tt_Op_Aritc_MINUS);          break;
                         case '/': token->setType(Tt_Op_Aritc_DIVISION);       break;
                         case '*': token->setType(Tt_Op_Aritc_MULTIPLICATION); break;
+                        case '(': token->setType(Tt_Id_O_PARENTHESES);        break;
+                        case ')': token->setType(Tt_Id_C_PARENTHESES);        break;
+                        case ';': token->setType(Tt_Crl_ENDCOMMAND);          break;
                     }
                 }
             break;
