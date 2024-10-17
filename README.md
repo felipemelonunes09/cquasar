@@ -18,3 +18,7 @@ Commands:
         =
     Comparation: 
         ==
+        >=
+        <=
+        >
+        <
