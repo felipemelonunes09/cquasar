@@ -14,7 +14,8 @@ std::unordered_map<std::string, TokenType> reserverdWords = {
     {"if",    Tt_Rw_IF },
     {"for",   Tt_Rw_FOR },
     {"while", Tt_Rw_WHILE },
-    {"print", Tt_Rw_PRINT }
+    {"print", Tt_Rw_PRINT },
+    {"else", Tt_Rw_Else}
 };
 
 static char getNextChar(void) {
