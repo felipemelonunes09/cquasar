@@ -1,6 +1,6 @@
 #include "token.h"
 
-Token::Token() : tokenString(""), type(UNDEFINED) {}
+Token::Token() : tokenString(""), type(Tt_Ctl_UNDEFINED) {}
 
 Token::Token(const std::string& tokenString, TokenType type) :
     tokenString(tokenString), type(type) {}

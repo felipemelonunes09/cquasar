@@ -1,3 +1,4 @@
+#include <unordered_map>
 #include "../../globals.h"
 #include "../../utils.h"
 #include "token.h"
@@ -137,7 +138,7 @@ Token* getToken(void) {
             if (reserverdWords.count(tokenString)) {
                 if (TraceScan) { fprintf(listing, " (RW) "); }
                 token->setType(reserverdWords[tokenString]); 
-        }
+            }
         }
     }
 
