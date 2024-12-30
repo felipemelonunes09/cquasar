@@ -40,5 +40,7 @@ This code was builded using the following flags
 # 💻 Compiling
 
 ## 📝 Docs
+Below are the links to the documentation for the different phases of the project. If you're interested in learning more, feel free to check them out.
+> - Lexer Analyzer: [click here](https://github.com/felipemelonunes09/cquasar-compiler/blob/main/docs/lex-analyzer.md)
 
 # 👨🏻‍💻 Code Contribuitors
