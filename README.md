@@ -17,6 +17,17 @@ It was developed in C++ to achieve better performance and, more importantly, to 
 
 # 🏆 Goals
 
+Here are the goals that we want to achieve.
+
+> | Status  | 📐 Regularização  |
+> | ---| ---     |
+> | ❌ | Fully Functioanble Programing Language    |
+> | ❌ | Being a typed language    |
+> | ❌ | Has Functions    |
+> | ❌ | Working Garbage Collector    |
+> | ❌ | Beeing Object Oriented    |
+
+
 # 🏗️ Building
 
 # 💻 Compiling
