@@ -19,7 +19,7 @@ It was developed in C++ to achieve better performance and, more importantly, to 
 
 Here are the goals that we want to achieve.
 
-> | Status  | 📐 Regularização  |
+> | Status  | 📐 Goal  |
 > | ---| ---     |
 > | ❌ | Fully Functioanble Programing Language    |
 > | ❌ | Being a typed language    |
