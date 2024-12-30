@@ -29,6 +29,13 @@ Here are the goals that we want to achieve.
 
 
 # 🏗️ Building
+This code was builded using the following flags
+```cpp
+-std=c++11 -Wall -Wextra -g
+```
+> But you can also use the Makefile using the command `make` on the current directory.
+
+
 
 # 💻 Compiling
 
