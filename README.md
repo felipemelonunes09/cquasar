@@ -1,13 +1,13 @@
 # CQuasar Compiler
 
-# Description
+# 💬 Description
 
-# Goals
+# 🏆 Goals
 
-# Building
+# 🏗️ Building
 
-# Compiling
+# 💻 Compiling
 
-## Docs
+## 📝 Docs
 
-# Code Contribuitors
+# 👨🏻‍💻 Code Contribuitors
