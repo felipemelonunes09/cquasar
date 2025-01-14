@@ -20,7 +20,7 @@
                             <programDeclaration>
                           <closeBracket>
                           "else"
-                          <openBrackets>
+                          <openBracket>
                             <programDeclaration>
                           <closeBracket>
   
