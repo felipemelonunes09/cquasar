@@ -30,7 +30,7 @@
                           <closeBracket>
 
 <whileLoopCommand> ::= "while" <openDelimiter> <booleanExpression> <closeDelimiter>
-						            <openBracket>
+			<openBracket>
                           <programDeclaration>
                         <closeBracket>
 
