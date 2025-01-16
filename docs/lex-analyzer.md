@@ -7,6 +7,7 @@ read
 write
 
 Simbolos Especiais
+
 -------------------
 - +
 - -
