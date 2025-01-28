@@ -1,5 +1,5 @@
 # Token Identificados Pelo Analisador Léxico
-O analisador léxico irá ler o arquivo e irá trazer para um buffer de linha de `256` caracteres de tamanho (pode ser alterado em futuras atualizações) e ler uma linha é possível fazer chamadas ao analisador para que ele retorne um a um os tokens conforme for lendo, assim que a linha acabar ela ira ler a próxima linha carregando novamentes os  `256` caracteres no buffer.
+O analisador léxico processará o arquivo carregando linhas em um buffer com capacidade de `256` caracteres (configurável em futuras atualizações). O analisador permite chamadas para retornar, token por token, à medida que realiza a leitura. Quando a linha atual for totalmente processada, o analisador continuará automaticamente lendo a próxima linha, recarregando os `256` caracteres no buffer.
 
 ## Tokens Reconhecidos
 
