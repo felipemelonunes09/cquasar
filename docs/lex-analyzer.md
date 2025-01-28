@@ -1,12 +1,6 @@
-Palavras Reservadas
-------------------------
-if 
-else
-while
-read
-write
+# Token Identificados Pelo Analisador Léxico
 
-Simbolos Especiais
+## Simbolos Especiais
 
 -------------------
 - +
@@ -21,6 +15,14 @@ Simbolos Especiais
 - {
 - }
 - ==
+
+## Palavras Reservadas
+------------------------
+if 
+else
+while
+read
+write
 
 Outros
 ------
