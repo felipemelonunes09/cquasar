@@ -46,6 +46,6 @@
 > | <= |  Tt_Op_Bool_LESS_EQUAL  |
 
 ## Comentários
-Todo texto que estiver iniciando com um '#' e finalizando com um '#' sera considerado um comentário e totalmente ignorado pelo analisador léxico.
+Todo texto que estiver iniciando com um `'#'` e finalizando com um `'#'` sera considerado um comentário e totalmente ignorado pelo analisador léxico.
 
 
