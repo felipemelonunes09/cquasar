@@ -1,4 +1,5 @@
 # Token Identificados Pelo Analisador Léxico
+O analisador léxico irá ler o arquivo e irá trazer para um buffer de linha de `256` caracteres de tamanho (pode ser alterado em futuras atualizações) e ler uma linha é possível fazer chamadas ao analisador para que ele retorne um a um os tokens conforme for lendo, assim que a linha acabar ela ira ler a próxima linha carregando novamentes os  `256` caracteres no buffer.
 
 ## Tokens Reconhecidos
 
@@ -46,6 +47,6 @@
 > | <= |  Tt_Op_Bool_LESS_EQUAL  |
 
 ## Comentários
-Todo texto que estiver iniciando com um `'#'` e finalizando com um `'#'` sera considerado um comentário e totalmente ignorado pelo analisador léxico.
+Todo texto que estiver iniciando com um `'#'` e finalizando com `'#'` sera considerado um comentário e totalmente ignorado pelo analisador léxico.
 
 
