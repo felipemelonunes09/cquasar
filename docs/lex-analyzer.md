@@ -6,29 +6,29 @@
 -------------------
 > | Simbolo  | 📐 Tipo de Token  |
 > | ---| ---     | 
-> |  |  Tt_Ctl_ENDFILE  | 
-> |  |  Tt_Ctl_ERROR  | 
-> |  |  Tt_Ctl_UNDEFINED  | 
-> |  |  Tt_Crl_ENDCOMMAND  |
+> | EOF |  Tt_Ctl_ENDFILE  | 
+> | $ |  Tt_Ctl_ERROR  | 
+> | $ |  Tt_Ctl_UNDEFINED  | 
+> | ; |  Tt_Crl_ENDCOMMAND  |
 
 ### Tokens de Identificadores
 
 > | Simbolo  | 📐 Tipo de Token  |
 > | ---| ---     | 
-> |  |  Tt_Id_NUMBER  | 
+> | [1-9][1-9]*$ |  Tt_Id_NUMBER  | 
 > |  |  Tt_Id_IDENTIFIER  | 
-> |  |  Tt_Id_O_PARENTHESES  | 
-> |  |  Tt_Id_C_PARENTHESES  |
+> | ( |  Tt_Id_O_PARENTHESES  | 
+> | ) |  Tt_Id_C_PARENTHESES  |
 
 ### Tokens de Palavras Reservadas
 
 > | Simbolo  | 📐 Tipo de Token  |
 > | ---| ---     | 
-> |  |  Tt_Rw_IF  |
-> |  |  Tt_Rw_Else  |
-> |  |  Tt_Rw_FOR  | 
-> |  |  Tt_Rw_WHILE  | 
-> |  |  Tt_Rw_PRINT  |
+> | if |  Tt_Rw_IF  |
+> | else |  Tt_Rw_Else  |
+> | for |  Tt_Rw_FOR  | 
+> | while |  Tt_Rw_WHILE  | 
+> | print |  Tt_Rw_PRINT  |
 
 ### Tokens de Operadores
 
