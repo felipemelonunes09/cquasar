@@ -23,7 +23,7 @@
 <primitiveTypes> ::= <typeInteger> | <typeString>
 
 <program>            ::= <openBracket> <programDeclaration> <closeBrackets>
-<programDeclaration> ::= <command> { <endcommand>, command }
+<programDeclaration> ::= <command> { <endcommand>, <command> }
 
 <multOperator> ::= * | -
 <addOperator> ::= + | -
