@@ -35,11 +35,11 @@
 <factor> ::= ( <expression> ) | <number> | <id>
 <term> ::= <factor> { <multOperator> <factor> }
 
-<expression> ::= <term> { <addOperator> <term> }
+<AriticExpression> ::= <term> { <addOperator> <term> }
 <booleanExpression> ::= <expression> [ <boolOperator> <expression> ]
 <logicExpression> ::= <booleanExpression> [ <logicOperator> <booleanExpression> ]
 
-<typedDeclaration> ::= <factor> | <booleanExpression> | <logicExpression>
+<typedDeclaration> ::= <AriticExpression> | <booleanExpression> | <logicExpression>
 
 ##
 ## Commands
