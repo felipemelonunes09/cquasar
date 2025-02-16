@@ -25,8 +25,6 @@
 <program>            ::= <openBracket> <programDeclaration> <closeBrackets>
 <programDeclaration> ::= <command> { <endcommand>, command }
 
-<command> ::= <conditionalCommand> | <loopCommand> | <readCommand> | <writeCommand> | <declarationCommand>
-
 <multOperator> ::= * | -
 <addOperator> ::= + | -
 <boolOperator> :: < | > | >= | <= | ==
@@ -66,6 +64,8 @@
                           <programDeclaration>
                         <closeBracket>
 
-<declarationCommand> ::= "#NI"
-<readCommand> ::= "#NI"
-<writeCommand> ::= "#NI"
+<readCommand> ::= read <id>
+<writeCommand> ::= write <id>
+
+<command> ::= <conditionalCommand> | <whileLoopCommand> | <readCommand> | <writeCommand> | <declarationCommand>
+
