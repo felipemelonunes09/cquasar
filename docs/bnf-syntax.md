@@ -11,9 +11,9 @@
 <primitiveTypes> ::= <typeInteger> | <typeString>
 
 <program>            ::= <openBracket> <programDeclaration> <closeBrackets>
-<programDeclaration> ::= <programDeclaration> <endCommand> <command> | <command> 
+<programDeclaration> ::= <command> { <endcommand>, command }
 
-<command> ::= <conditionalCommand> | <loopCommand> | <readCommand> | <writeCommand>
+<command> ::= <conditionalCommand> | <loopCommand> | <readCommand> | <writeCommand> 
 
 <declarationCommand> ::= <primitiveTypes> <id> <equalsSign> <typedExpression>
 
