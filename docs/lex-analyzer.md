@@ -1,29 +1,30 @@
 # Token Identificados Pelo Analisador Léxico
-O analisador léxico processará o arquivo carregando linhas em um buffer com capacidade de `256` caracteres (configurável em futuras atualizações). O analisador permite chamadas para retornar, token por token, à medida que realiza a leitura. Quando a linha atual for totalmente processada, o analisador continuará automaticamente lendo a próxima linha, recarregando os `256` caracteres no buffer.
 
-## Tokens Reconhecidos
+The lexical analyzer will process the file by loading lines into a buffer with a capacity of `256` characters (configurable in future updates). The analyzer allows calls to return tokens one by one as it performs the reading. When the current line is fully processed, the analyzer will automatically continue reading the next line, reloading the `256` characters into the buffer.
 
-### Tokens de Controle
+## Recognized Tokens
+
+### Controls Tokens
 -------------------
-> | Simbolo  | 📐 Tipo de Token  |
+> | Symbol  | 📐 Token Type  |
 > | ---| ---     | 
 > | EOF |  Tt_Ctl_ENDFILE  | 
 > | $ |  Tt_Ctl_ERROR  | 
 > | $ |  Tt_Ctl_UNDEFINED  | 
 > | ; |  Tt_Crl_ENDCOMMAND  |
 
-### Tokens de Identificadores
+### Identifier Tokens
 
-> | Simbolo  | 📐 Tipo de Token  |
+> | Symbol  | 📐 Token Type   |
 > | ---| ---     | 
 > | [1-9][1-9]*$ |  Tt_Id_NUMBER  | 
 > | [a-zA-Z][a-zA-Z0-9]*$ |  Tt_Id_IDENTIFIER  | 
 > | ( |  Tt_Id_O_PARENTHESES  | 
 > | ) |  Tt_Id_C_PARENTHESES  |
 
-### Tokens de Palavras Reservadas
+### Reserved Words Tokens
 
-> | Simbolo  | 📐 Tipo de Token  |
+> | Symbol  | 📐 Token Type   |
 > | ---| ---     | 
 > | if |  Tt_Rw_IF  |
 > | else |  Tt_Rw_Else  |
@@ -31,9 +32,9 @@ O analisador léxico processará o arquivo carregando linhas em um buffer com ca
 > | while |  Tt_Rw_WHILE  | 
 > | print |  Tt_Rw_PRINT  |
 
-### Tokens de Operadores
+### Operators Tokens
 
-> | Simbolo  | 📐 Tipo de Token  |
+> | Symbol  | 📐 Token Type   |
 > | ---| ---     | 
 > | = |  Tt_Op_Expr_ATTRIBUITION  |
 > | + |  Tt_Op_Aritc_PLUS  | 
@@ -46,7 +47,6 @@ O analisador léxico processará o arquivo carregando linhas em um buffer com ca
 > | < |  Tt_Op_Bool_LESS  |
 > | <= |  Tt_Op_Bool_LESS_EQUAL  |
 
-## Comentários
-Todo texto que estiver iniciando com um `'#'` e finalizando com `'#'` sera considerado um comentário e totalmente ignorado pelo analisador léxico.
-
+## Comment
+Any text that starts with `#` and ends with `#` will be considered a comment and completely ignored by the lexical analyzer.
 
