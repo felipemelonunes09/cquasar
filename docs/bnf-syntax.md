@@ -13,8 +13,8 @@
 <typeString> ::= String
 
 
-<id> ::= "#NI"
-<number> ::= "#NI"
+<id> ::= "[A-z]([A-z]|[0-9])+"
+<number> ::= "[]"
 
 #
 # Non-terminals
