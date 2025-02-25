@@ -14,7 +14,7 @@
 
 
 <id> ::= "[A-z]([A-z]|[0-9])+"
-<number> ::= "[]"
+<number> ::= [0-9]+"
 
 #
 # Non-terminals
